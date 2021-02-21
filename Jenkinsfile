@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true}
+    environment {
+        registry = 'laharimadupally/jenkins_images'
+        registryCredential = 'laharimadupally'
+        dockerImage = ''
+    }
+    agent any
 
     tools {nodejs "node"}
 
@@ -21,8 +26,8 @@ pipeline {
         }
         stage('Build docker image') {
             steps {
-                // sh "docker build -t tsdevopsrepo ."
                 sh "docker --version"
+                // dockerImage = docker.build registry + ":$BUILD_NUMBER"
             }
         }
     }
