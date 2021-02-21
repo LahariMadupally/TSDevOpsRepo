@@ -30,7 +30,9 @@ pipeline {
         stage('Build docker image') {
             steps {
                 sh "docker --version"
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
                 sh "docker image ls"
             }
         }
