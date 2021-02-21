@@ -1,7 +1,8 @@
 pipeline {
     environment {
         registry = 'laharimadupally/jenkins_images'
-        registryCredential = 'laharimadupally'
+        // the credential ID added in Jenkins - Global credentials
+        registryCredential = 'dockerhub_id'
         dockerImage = ''
     }
     agent any
