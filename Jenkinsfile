@@ -19,9 +19,10 @@ pipeline {
                 sh "npm run test"
             }
         }
-        stage('Deploy') {
+        stage('Build docker image') {
             steps {
-                sh "npm run start"
+                // sh "docker build -t tsdevopsrepo ."
+                sh "docker --version"
             }
         }
     }
