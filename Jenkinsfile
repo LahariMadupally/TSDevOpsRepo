@@ -39,6 +39,11 @@ pipeline {
                 sh "docker image ls"
             }
         }
+        stage('View all environment variables') {
+            steps{
+                sh "printenv"
+            }
+        }
         stage('Push Image to Docker Registry') {
             steps{
                 script {
