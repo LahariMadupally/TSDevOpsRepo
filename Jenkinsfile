@@ -31,6 +31,8 @@ pipeline {
         stage('Build docker image') {
             steps {
                 sh "docker --version"
+                // giving the rwx access to the docker.sock file
+                sh "sudo chmod 777 /var/run/docker.sock"
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
