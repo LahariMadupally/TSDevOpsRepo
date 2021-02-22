@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh "docker --version"
                 script {
-                    dockerImage = docker.build registry + ":$JOB_NAME:$BUILD_NUMBER" 
+                    dockerImage = docker.build registry + ":$JOB_NAME-$BUILD_NUMBER" 
                 }
                 sh "docker image ls"
             }
