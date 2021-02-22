@@ -36,7 +36,7 @@ pipeline {
                 }
                 sh "docker image ls"
             }
-        }`
+        }
         stage('Push Image to Docker Registry') {
             steps{
                 script {
